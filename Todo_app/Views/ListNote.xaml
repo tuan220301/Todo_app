@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Todo_app.Views.ListNote"
+             Title="Notes !">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_search.png" Clicked="AddNewNote"/>
+        <ToolbarItem IconImageSource="icon_plus.png" Clicked="AddNewNote"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#252525">
+            <CollectionView x:Name="ShowList" SelectionMode="Single" Margin="10,10,10,0" SelectionChanged="SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="Auto" Mode ="Execute">
+                                        <SwipeItem Text="Delete" BackgroundColor="Red" x:Name="SWDelete" CommandParameter="{Binding .}" Invoked="Delete">
+                                        </SwipeItem>
+                                    </SwipeItems>
+
+                                </SwipeView.RightItems>
+
+                                <Grid BackgroundColor="#252525">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="3*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <BoxView x:Name="bgColor" Grid.RowSpan="2" CornerRadius="5" BackgroundColor="{Binding NoteColor}" />
+                                    <Label Text="{Binding NoteTitle} " Padding="5,2,0,0" Grid.Column="0" Grid.Row="0" FontSize="16" FontAttributes="Bold"></Label>
+
+                                    <Label Text="{Binding NoteContent}" Padding="5,2,0,0" Grid.Column="0" Grid.Row="1" FontSize="Medium" Margin="10"></Label>
+                                </Grid>
+                            </SwipeView>
+                        </StackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

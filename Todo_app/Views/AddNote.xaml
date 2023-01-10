@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Todo_app.Views.AddNote">
+    <ContentPage.ToolbarItems>
+       
+        <ToolbarItem IconImageSource="icon_save.png" Clicked="AddNewNote"/>
+       
+    </ContentPage.ToolbarItems>
+   
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#252525" Padding="10">
+            <Label x:Name="ShowTitle"/>
+            <Button Text="New line" Clicked="AddEntry"/>
+            <Entry Placeholder="Title" 
+                   PlaceholderColor="white" 
+                   TextColor="White" 
+                   BackgroundColor="#252525" 
+                   x:Name="NoteTitle" 
+                   Margin="10" FontSize="30" />
+            <Editor Placeholder="Type something..." 
+                    Margin="10" BackgroundColor="#252525" 
+                    PlaceholderColor="White" TextColor="white"
+                    AutoSize="TextChanges" Grid.Row="1" x:Name="NoteContent" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
