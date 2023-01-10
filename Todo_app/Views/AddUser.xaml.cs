@@ -15,6 +15,10 @@ namespace Todo_app.Views
 		public AddUser ()
 		{
 			InitializeComponent ();
-		}
-	}
+
+
+        }
+       
+
+    }
 }

@@ -1,12 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Todo_app.Views.AddUser">
+             xmlns:local="clr-namespace:Todo_app;assembly=Todo_app"
+             x:Class="Todo_app.Views.AddUser"
+             BackgroundColor="#252525">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="0,150,0,0">
+            <Grid Padding="20" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <BoxView Grid.Row="0"/>
+                <Label Text="Create your information" FontSize="25" VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="White"
+                       />
+                <Frame BorderColor="#252525" CornerRadius="30" Padding="20,0,0,0" Margin="0,0,0,10" Grid.Row="1">
+                    <local:MyEntry x:Name="name" Placeholder="Full Name" />
+                </Frame>
+                <Frame BorderColor="#252525" CornerRadius="30" Padding="20,0,0,0" Margin="0,0,0,10" Grid.Row="2">
+                    <local:MyEntry x:Name="birthday" Placeholder="Birthday" />
+                </Frame>
+                <Frame BorderColor="#252525" CornerRadius="30" Padding="20,0,0,0" Margin="0,0,0,10" Grid.Row="3">
+                    <local:MyEntry x:Name="age" Placeholder="age" Grid.Row="3"/>
+                </Frame>
+                <Frame BorderColor="#252525" CornerRadius="30" Padding="20,0,0,0" Margin="0,0,0,10" Grid.Row="4">
+                    <local:MyEntry x:Name="gender" Placeholder="Gender" Grid.Row="4"/>
+                </Frame>
+                <Button Text="Save"  Grid.Row="5" FontSize="20" Margin="0,0,0,10" CornerRadius="40" BackgroundColor="#D35400"
+                        />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

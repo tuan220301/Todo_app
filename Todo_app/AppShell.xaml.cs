@@ -12,9 +12,13 @@ namespace Todo_app
         public AppShell()
         {
             InitializeComponent();
+          
             Routing.RegisterRoute(nameof(UserDetail), typeof(UserDetail));
             Routing.RegisterRoute(nameof(ListNote), typeof(ListNote));
+            
         }
+        
 
     }
+    
 }

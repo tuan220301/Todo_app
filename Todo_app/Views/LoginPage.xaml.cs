@@ -17,5 +17,9 @@ namespace Todo_app.Views
             InitializeComponent();
             
         }
+        private void goToMain(object sender, EventArgs e) 
+        {
+            
+        }
     }
 }

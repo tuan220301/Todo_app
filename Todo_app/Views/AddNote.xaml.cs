@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Todo_app.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace Todo_app.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddNote : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddNote : ContentPage
+    {
         Notes _note;
-        public AddNote ()
-		{
-			InitializeComponent ();
+        public AddNote()
+        {
+            InitializeComponent();
             ShowTitle.Text = "New Note";
 
         }
@@ -33,11 +34,10 @@ namespace Todo_app.Views
             NoteTitle.Text = note.NoteTitle;
             /* CityImg.Text = city.CityImageUrl;*/
             NoteContent.Text = note.NoteContent;
-            
+
 
         }
-        Dictionary<string, Entry> entries = new Dictionary<string, Entry>();
-
+        
         /*public void AddEntry()
         {
             var name = "entry ";
@@ -48,6 +48,9 @@ namespace Todo_app.Views
         private async void AddNewNote(object sender, EventArgs e)
         {
             var coloNote = CreateRandomColor();
+            var selectedDate = datePicker.Date.ToString();
+            var selectedTime = timePicker.Time.ToString();
+
 
             if (string.IsNullOrWhiteSpace(NoteTitle.Text) || string.IsNullOrWhiteSpace(NoteContent.Text))
             {
@@ -59,7 +62,8 @@ namespace Todo_app.Views
                 _note.NoteTitle = NoteTitle.Text;
                 _note.NoteContent = NoteContent.Text;
                 _note.NoteColor = coloNote.ToString();
-
+                _note.NoteDateDone = selectedDate;
+                _note.NoteTimeDone = selectedTime;
                 App.NoteController.UpdateNote(_note);
                 await Navigation.PopAsync();
             }
@@ -70,7 +74,9 @@ namespace Todo_app.Views
                 {
                     NoteTitle = NoteTitle.Text,
                     NoteContent = NoteContent.Text,
-                    NoteColor = coloNote.ToString()
+                    NoteColor = coloNote.ToString(),
+                    NoteDateDone = selectedDate,
+                    NoteTimeDone = selectedTime
                 };
 
                 if (App.NoteController.CreateNote(note))
@@ -90,7 +96,10 @@ namespace Todo_app.Views
             return result;
 
         }
+        private double TotalSeconds()
+        {
+            return 1;
+        }
 
-        
     }
 }

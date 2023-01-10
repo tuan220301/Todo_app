@@ -15,6 +15,7 @@ namespace Todo_app.Models
         public string ImgTitleNote { get; set; }
         public string ImgContentNote { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime TimeUp { get; set; }
+        public string NoteDateDone { get; set; }
+        public string NoteTimeDone { get; set; }
     }
 }

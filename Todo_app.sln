@@ -5,7 +5,12 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_app.Android", "Todo_app.Android\Todo_app.Android.csproj", "{50D14ED8-76B0-46B9-AD61-23480A7DB14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo_app", "Todo_app\Todo_app.csproj", "{9B82D633-C3D8-48F5-9A35-A97BDFA2D985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo_app", "Todo_app\Todo_app.csproj", "{9B82D633-C3D8-48F5-9A35-A97BDFA2D985}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92EA5871-3C92-4896-A4A6-3708D472F734}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
