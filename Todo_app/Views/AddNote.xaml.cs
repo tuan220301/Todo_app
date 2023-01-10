@@ -14,42 +14,37 @@ namespace Todo_app.Views
     public partial class AddNote : ContentPage
     {
         Notes _note;
+        
         public AddNote()
         {
             InitializeComponent();
-            ShowTitle.Text = "New Note";
-
         }
         public static string DateFormat = "dd-MM-yyyy";
         public static string Today => DateTime.Now.ToString(DateFormat);
 
 
+
         public AddNote(Notes note)
         {
             InitializeComponent();
-            String myDate = DateTime.Now.ToString(Today);
-            ShowTitle.Text = myDate;
             _note = note;
             Title = "Add Note";
             NoteTitle.Text = note.NoteTitle;
             /* CityImg.Text = city.CityImageUrl;*/
             NoteContent.Text = note.NoteContent;
-
-
+            timePicker.Time = note.NoteTimeDone;
+            datePicker.Date = note.NoteDateDone;
+            NoteContent.TextColor = System.Drawing.Color.FromName(note.NoteColor);
+            NoteTitle.TextColor = System.Drawing.Color.FromName(note.NoteTitleColor);
+            Console.WriteLine("note.NoteColor" + note.NoteColor);
+            Console.WriteLine("note.NoteTitleColor" + note.NoteColor);
         }
-        
-        /*public void AddEntry()
-        {
-            var name = "entry ";
-            var entry = new Entry();
-            myLayout.Children.Add(entry);
-            entries.Add(name, entry);
-        }*/
         private async void AddNewNote(object sender, EventArgs e)
         {
-            var coloNote = CreateRandomColor();
-            var selectedDate = datePicker.Date.ToString();
-            var selectedTime = timePicker.Time.ToString();
+            var ColorContent = NoteContent.TextColor.ToString();
+            var colorTitle = NoteTitle.TextColor.ToString();
+            var selectedDate = datePicker.Date;
+            var selectedTime = timePicker.Time;
 
 
             if (string.IsNullOrWhiteSpace(NoteTitle.Text) || string.IsNullOrWhiteSpace(NoteContent.Text))
@@ -61,7 +56,8 @@ namespace Todo_app.Views
 
                 _note.NoteTitle = NoteTitle.Text;
                 _note.NoteContent = NoteContent.Text;
-                _note.NoteColor = coloNote.ToString();
+                _note.NoteColor = ColorContent;
+                _note.NoteTitleColor = colorTitle;  
                 _note.NoteDateDone = selectedDate;
                 _note.NoteTimeDone = selectedTime;
                 App.NoteController.UpdateNote(_note);
@@ -74,7 +70,8 @@ namespace Todo_app.Views
                 {
                     NoteTitle = NoteTitle.Text,
                     NoteContent = NoteContent.Text,
-                    NoteColor = coloNote.ToString(),
+                    NoteColor = ColorContent,
+                    NoteTitleColor = colorTitle,
                     NoteDateDone = selectedDate,
                     NoteTimeDone = selectedTime
                 };
@@ -90,16 +87,60 @@ namespace Todo_app.Views
                 }
             }
         }
-        private string CreateRandomColor()
+        /*private string CreateRandomColor()
         {
             var result = "#" + Guid.NewGuid().ToString().Substring(0, 6);
             return result;
 
-        }
-        private double TotalSeconds()
+        }*/
+/*        TitleColor*/
+        private void TitleBlueSelected(object sender, EventArgs args)
         {
-            return 1;
+           NoteTitle.TextColor= Color.FromHex("#0000FF");
+            Console.WriteLine(Color.FromHex("#0000FF"));
+        }
+        private void TitleRedSelected(object sender, EventArgs args)
+        {
+            NoteTitle.TextColor = Color.Red;
+        }
+        private void TitleYellowSelected(object sender, EventArgs args)
+        {
+            NoteTitle.TextColor = Color.Yellow;
+        }
+        private void TitleWhiteSelected(object sender, EventArgs args)
+        {
+            NoteTitle.TextColor = Color.White;
+        }
+        private void TitleOrangeSelected(object sender, EventArgs args)
+        {
+            NoteTitle.TextColor = Color.Orange;
         }
 
+        /*ContentColor*/
+        private void ContentBlueSelected(object sender, EventArgs args)
+        {
+            NoteContent.TextColor = Color.Blue;
+        }
+        private void ContentRedSelected(object sender, EventArgs args)
+        {
+            NoteContent.TextColor = Color.Red;
+        }
+        private void ContentYellowSelected(object sender, EventArgs args)
+        {
+            NoteContent.TextColor = Color.Yellow;
+        }
+        private void ContentWhiteSelected(object sender, EventArgs args)
+        {
+            NoteContent.TextColor = Color.White;
+        }
+        private void ContentOrangeSelected(object sender, EventArgs args)
+        {
+            NoteContent.TextColor = Color.Orange;
+        }
+        /* private double TotalSeconds()
+         {
+             return 1;
+         }
+ */
     }
 }

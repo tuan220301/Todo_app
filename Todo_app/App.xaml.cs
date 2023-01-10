@@ -18,7 +18,7 @@ namespace Todo_app
 
             /*DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();*/
-            /*var isEmpty = (App.UserController.ReadUser()).ToArray();
+            var isEmpty = (App.UserController.ReadUser()).ToArray();
             Console.WriteLine("Length of list user" + isEmpty.Length);
             if (isEmpty.Length == 0)
             {
@@ -27,8 +27,8 @@ namespace Todo_app
             else
             {
                 MainPage = new AppShell();
-            }*/
-            MainPage = new AppShell();
+            }
+            /*MainPage = new AppShell();*/
         }
 
         protected override void OnStart()

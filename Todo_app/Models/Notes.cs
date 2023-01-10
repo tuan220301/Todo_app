@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
+
 namespace Todo_app.Models
 {
     public class Notes
@@ -12,10 +14,11 @@ namespace Todo_app.Models
         public string NoteContent { get; set; }
         public string NoteImage { get; set; }
         public string NoteColor { get; set; }
+        public string NoteTitleColor { get; set; }
         public string ImgTitleNote { get; set; }
         public string ImgContentNote { get; set; }
         public DateTime DateCreated { get; set; }
-        public string NoteDateDone { get; set; }
-        public string NoteTimeDone { get; set; }
+        public DateTime NoteDateDone { get; set; }
+        public TimeSpan NoteTimeDone { get; set; }
     }
 }

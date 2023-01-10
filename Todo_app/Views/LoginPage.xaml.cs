@@ -17,9 +17,10 @@ namespace Todo_app.Views
             InitializeComponent();
             
         }
-        private void goToMain(object sender, EventArgs e) 
+        private void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            
+            // Perform login logic here
+            Application.Current.MainPage = new AppShell();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Todo_app.Views.AddNote">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Todo_app;assembly=Todo_app"         
+    x:Class="Todo_app.Views.AddNote">
     <ContentPage.ToolbarItems>
 
         <ToolbarItem IconImageSource="icon_save.png" Clicked="AddNewNote"/>
@@ -11,11 +13,76 @@
         <StackLayout BackgroundColor="#252525" Padding="10">
             <Label x:Name="ShowTitle"/>
             <!-- <Button Text="New line"/> -->
-            <Frame BackgroundColor="#3B3B3B" Padding="15" CornerRadius="10">
+            <Frame BackgroundColor="#3B3B3B" Padding="12" CornerRadius="10">
+                
+                    <local:MyEntry Placeholder="Title" PlaceholderColor="#ccc" 
+                                   TextColor="White" x:Name="NoteTitle" FontSize="15" />
+                    
+               
+            </Frame>
+            <Frame BackgroundColor="Transparent" Padding="5" CornerRadius="10">
+
                 <StackLayout>
-                    <Entry Placeholder="Title" PlaceholderColor="#ccc" TextColor="White" x:Name="NoteTitle" FontSize="30" />
-                    <Editor Placeholder="Type something..." PlaceholderColor="#ccc" TextColor="white" AutoSize="TextChanges" Grid.Row="1" x:Name="NoteContent" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                       
+                        <Button Text="Blue"   FontSize="12" Grid.Column="0" 
+                                Clicked="TitleBlueSelected"/>
+                        <Button Text="Red"  
+                                FontSize="12" Grid.Column="1" Clicked="TitleRedSelected"/>
+                        <Button Text="Yellow" FontSize="11" 
+                                Clicked="TitleYellowSelected"  Grid.Column="2"/>
+                        <Button Text="white" FontSize="12"
+                                Clicked="TitleWhiteSelected" Grid.Column="3"/>
+                        <Button Text="Orange" FontSize="11" Grid.Column="4"
+                                Clicked="TitleOrangeSelected"/>
+                        
+                    </Grid>
                 </StackLayout>
+
+
+            </Frame>
+
+            <Frame BackgroundColor="#3B3B3B" Padding="12" CornerRadius="10" Margin="0,15,0,0">
+                <local:MyEditor HeightRequest="150" 
+                                    Placeholder="Type something..." 
+                                    PlaceholderColor="#ccc" 
+                                    TextColor="white" 
+                                    AutoSize="TextChanges" Grid.Row="1" x:Name="NoteContent" />
+            </Frame>
+            <Frame BackgroundColor="Transparent" Padding="5" CornerRadius="10">
+
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Text="Blue"   FontSize="12" Grid.Column="0" 
+                                Clicked="ContentBlueSelected"/>
+                        <Button Text="Red"  
+                                FontSize="12" Grid.Column="1" Clicked="ContentRedSelected"/>
+                        <Button Text="Yellow" FontSize="11" 
+                                Clicked="ContentYellowSelected"  Grid.Column="2"/>
+                        <Button Text="white" FontSize="12"
+                                Clicked="ContentWhiteSelected" Grid.Column="3"/>
+                        <Button Text="Orange" FontSize="11" Grid.Column="4"
+                                Clicked="ContentOrangeSelected"/>
+
+                    </Grid>
+                </StackLayout>
+
+
             </Frame>
             <Frame BackgroundColor="#3B3B3B" Padding="15" CornerRadius="10" Margin="0,15,0,0">
                 <StackLayout>
@@ -27,6 +94,7 @@
 
                 </StackLayout>
             </Frame>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

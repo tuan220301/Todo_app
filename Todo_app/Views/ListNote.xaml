@@ -32,10 +32,10 @@
 
                                     </Grid.ColumnDefinitions>
 
-                                    <BoxView x:Name="bgColor" Grid.RowSpan="2" CornerRadius="5" BackgroundColor="{Binding NoteColor}" />
-                                    <Label Text="{Binding NoteTitle} " Padding="5,2,0,0" Grid.Column="0" Grid.Row="0" FontSize="16" FontAttributes="Bold"></Label>
+                                    <BoxView x:Name="bgColor" Grid.RowSpan="2" CornerRadius="5" />
+                                    <Label Text="{Binding NoteTitle}" TextColor="{Binding NoteTitleColor}" Padding="10,5,0,0" Grid.Column="0" Grid.Row="0" FontSize="20" FontAttributes="Bold"></Label>
 
-                                    <Label Text="{Binding NoteContent}" Padding="5,2,0,0" Grid.Column="0" Grid.Row="1" FontSize="Medium" Margin="10"></Label>
+                                    <Label Text="{Binding NoteContent}" TextColor="{Binding NoteColor}" Padding="5,2,0,0" Grid.Column="0" Grid.Row="1" FontSize="Medium" Margin="10"></Label>
                                 </Grid>
                             </SwipeView>
                         </StackLayout>
