@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Todo_app" x:Class="Todo_app.Views.UserDetail" 
-    BackgroundColor="#3B3B3B" 
-    NavigationPage.HasNavigationBar="False" >
+    xmlns:local="clr-namespace:Todo_app" x:Class="Todo_app.Views.UserDetail" BackgroundColor="#3B3B3B" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <CollectionView x:Name="showUser" SelectionMode="Single" SelectionChanged="EditUser" Margin="10,10,10,0" BackgroundColor="#252525">
+        <StackLayout HorizontalOptions="Center" BackgroundColor="#252525">
+            <CollectionView x:Name="showUser" SelectionMode="Single" SelectionChanged="EditUser">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" BackgroundColor="#252525">
-                            <SwipeView>
+                        <StackLayout BackgroundColor="#252525">
+                            <SwipeView BackgroundColor="Transparent">
                                 <SwipeView.RightItems>
                                     <SwipeItems SwipeBehaviorOnInvoked="Auto" Mode ="Execute">
                                         <SwipeItem Text="Delete" BackgroundColor="Red" x:Name="SWDelete" CommandParameter="{Binding .}" Invoked="Delete">
@@ -21,20 +19,16 @@
                                 <StackLayout VerticalOptions="Center" Padding="20">
                                     <Label Text="Add user" HorizontalOptions="Center" FontSize="30" TextColor="White" Margin="0,0,0,20" />
                                     <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                                        <local:MyEntry Placeholder="Username" PlaceholderColor="#ccc" TextColor="White" x:Name="Username" FontSize="20" />
-                                    </Frame>
-
-                                    <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                                        <local:MyEntry Placeholder="Age" PlaceholderColor="#ccc" TextColor="White" x:Name="Age" FontSize="20" />
+                                        <local:MyEntry Placeholder="Username" PlaceholderColor="#ccc" TextColor="White" x:Name="Username" FontSize="20" Text="{Binding Username}"/>
                                     </Frame>
                                     <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                                        <local:MyDatePicker TextColor="White" x:Name="Birthday" FontSize="20" />
+                                        <local:MyEntry Placeholder="Age" PlaceholderColor="#ccc" TextColor="White" x:Name="Age" FontSize="20" Text="{Binding Age}"/>
                                     </Frame>
                                     <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                                        <local:MyEntry Placeholder="Gender" PlaceholderColor="#ccc" TextColor="White" x:Name="Gender" FontSize="20" />
+                                        <local:MyEntry Placeholder="Gender" PlaceholderColor="#ccc" TextColor="White" x:Name="Gender" FontSize="20" Text="{Binding Gender}"/>
                                     </Frame>
                                     <StackLayout>
-                                        <Button Text="Add User" CornerRadius="20" FontSize="20" Clicked="AddUser"/>
+                                        <Button Text="Edit" CornerRadius="20" FontSize="20" Clicked="AddUser"/>
                                     </StackLayout>
                                 </StackLayout>
                             </SwipeView>

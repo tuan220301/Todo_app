@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-using Todo_app.Models;
+using Todo_app.Database;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,20 +20,21 @@ namespace Todo_app.Views
         {
             InitializeComponent();
             Title = "Create";
+            Nametab.Text = "Add New";
         }
         public AddUser(User user)
         {
             InitializeComponent();
+            _user = user;
             Title = "Update";
+            Nametab.Text = "Update";
             name.Text = user.Username;
             age.Text = user.Age;
-            birthday.Date = user.Birthday;
             gender.Text = user.Gender;
 
         }
         private async void AddNewUser(object sender, EventArgs e)
         {
-            var birthdaySelect = birthday.Date;
 
             if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrWhiteSpace(age.Text) || string.IsNullOrWhiteSpace(gender.Text))
             {
@@ -47,10 +48,11 @@ namespace Todo_app.Views
                 _user.Gender = gender.Text;
                 App.UserController.UpdateUser(_user);
                 await Navigation.PopAsync();
+                /* await DisplayAlert("Thong bao", "! null", "oke");*/
             }
             else
             {
-
+                /*await DisplayAlert("Thong bao", "Thêm mới thất bại!", "OK");*/
                 User user = new User
                 {
                     Username = name.Text,
