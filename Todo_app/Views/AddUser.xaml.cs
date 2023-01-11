@@ -9,16 +9,15 @@ using Xamarin.Forms.Xaml;
 
 namespace Todo_app.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddUser : ContentPage
-	{
-		public AddUser ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AddUser : ContentPage
+    {
+        public AddUser()
+        {
+            InitializeComponent();
 
 
         }
-       
 
     }
 }

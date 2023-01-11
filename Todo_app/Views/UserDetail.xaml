@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Todo_app.Views.UserDetail">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Todo_app" x:Class="Todo_app.Views.UserDetail" BackgroundColor="#3B3B3B" NavigationPage.HasNavigationBar="False" Title="Detail User">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="User detail!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Center" Padding="20">
+            <Frame BackgroundColor="#95FFFFFF" Padding="10,5,10,5" CornerRadius="20" Margin="0,0,0,15">
+                <StackLayout>
+                    <Label TextColor="White" FontSize="15" Margin="0" FontAttributes="Italic" Text="Username"/>
+                    <local:MyEntry Placeholder="Username" PlaceholderColor="White" TextColor="White" x:Name="Username" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#95FFFFFF" Padding="10,5,10,5" CornerRadius="20" Margin="0,0,0,15">
+                <StackLayout>
+                    <Label TextColor="White" FontSize="15" Margin="0" FontAttributes="Italic" Text="Password"/>
+                    <local:MyEntry Placeholder="Password" PlaceholderColor="White" TextColor="White" x:Name="Password" FontSize="20" IsPassword="True"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#95FFFFFF" Padding="10,5,10,5" CornerRadius="20" Margin="0,0,0,15">
+                <StackLayout>
+                    <Label TextColor="White" FontSize="15" Margin="0" FontAttributes="Italic" Text="Age"/>
+                    <local:MyEntry Placeholder="Age" PlaceholderColor="White" TextColor="White" x:Name="Age" FontSize="20" Keyboard="Numeric"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#95FFFFFF" Padding="10,5,10,5" CornerRadius="20" Margin="0,0,0,15">
+                <StackLayout>
+                    <Label TextColor="White" FontSize="15" Margin="0" FontAttributes="Italic" Text="Date of birth"/>
+                    <DatePicker TextColor="White" x:Name="Birthday" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#95FFFFFF" Padding="10,5,10,5" CornerRadius="20" Margin="0,0,0,15">
+                <StackLayout>
+                    <Label TextColor="White" FontSize="15" Margin="0" FontAttributes="Italic" Text="Gender"/>
+                    <local:MyEntry Placeholder="Gender" PlaceholderColor="White" TextColor="White" x:Name="Gender" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <StackLayout>
+                <Button Text="Save" Clicked="UpdateUser" CornerRadius="20" FontSize="20"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
