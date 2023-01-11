@@ -7,22 +7,20 @@
         <StackLayout VerticalOptions="Center" Padding="20">
             <Label Text="Add user" HorizontalOptions="Center" FontSize="30" TextColor="White" Margin="0,0,0,20" />
             <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                <local:MyEntry Placeholder="Username" PlaceholderColor="#ccc" TextColor="White" x:Name="Username" FontSize="20" />
+                <local:MyEntry Placeholder="Username" PlaceholderColor="#ccc" TextColor="White" x:Name="name" FontSize="20" />
+            </Frame>
+            
+            <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
+                <local:MyEntry Placeholder="Age" PlaceholderColor="#ccc" TextColor="White" x:Name="age" FontSize="20" />
             </Frame>
             <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                <local:MyEntry Placeholder="Password" PlaceholderColor="#ccc" TextColor="White" x:Name="Password" FontSize="20" />
+                <local:MyDatePicker TextColor="White" x:Name="birthday" FontSize="20" />
             </Frame>
             <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                <local:MyEntry Placeholder="Age" PlaceholderColor="#ccc" TextColor="White" x:Name="Age" FontSize="20" />
-            </Frame>
-            <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                <local:MyDatePicker TextColor="White" x:Name="DateOfBirth" FontSize="20" />
-            </Frame>
-            <Frame BackgroundColor="#3B3B3B" Padding="10" CornerRadius="20" Margin="0,0,0,15">
-                <local:MyEntry Placeholder="Gender" PlaceholderColor="#ccc" TextColor="White" x:Name="Gender" FontSize="20" />
+                <local:MyEntry Placeholder="Gender" PlaceholderColor="#ccc" TextColor="White" x:Name="gender" FontSize="20" />
             </Frame>
             <StackLayout>
-                <Button Text="Add User" CornerRadius="20" FontSize="20"/>
+                <Button Text="Add User" CornerRadius="20" FontSize="20" Clicked="AddNewUser"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
